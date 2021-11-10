@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constant.dart';
+import 'widget/category_listview.dart';
 import 'widget/search_input.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -41,9 +43,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildappBar(),
       body: Column(
-        children: const [
-          SearchInput(),
-          Padding(
+        children: [
+          const SearchInput(),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Text(
               "Travel, Live, Explore the world \nwith us !",
@@ -52,34 +54,54 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 24),
-          CategoryListView()
-        ],
-      ),
-    );
-  }
-}
-
-class CategoryListView extends StatelessWidget {
-  const CategoryListView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 30,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categoryList.length,
-          itemBuilder: (context, index) => Container(
-                margin: const EdgeInsets.only(left: 40),
-                child: Text(
-                  categoryList[index],
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+          const SizedBox(height: 24),
+          const CategoryListView(),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(24),
+              child: StaggeredGridView.countBuilder(
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                crossAxisCount: 4,
+                itemCount: placeList.length,
+                itemBuilder: (ctx, index) => Container(
+                  alignment: Alignment.bottomLeft,
+                  height: placeList[index].height,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        placeList[index].imageUrl,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        placeList[index].title,
+                        style: const TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          shadows: [
+                            Shadow(
+                              blurRadius: 2,
+                              color: Colors.black,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              )),
+                staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
