@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constant.dart';
+import '../../../utils/constant.dart';
 
 class CategoryListView extends StatefulWidget {
   const CategoryListView({Key? key}) : super(key: key);

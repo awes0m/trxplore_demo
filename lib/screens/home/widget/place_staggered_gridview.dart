@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import '../../../constant.dart';
+import '../../../utils/constant.dart';
 import 'place_item.dart';
 
 class PlaceStaggeredGridview extends StatelessWidget {

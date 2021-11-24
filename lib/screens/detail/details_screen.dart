@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trxplore_demo/constant.dart';
+import 'package:trxplore_demo/utils/constant.dart';
 
 class DetailScreen extends StatelessWidget {
   static const routeName = '/detail-screen';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trxplore_demo/screens/detail/details_screen.dart';
 
-import '../../../constant.dart';
+import '../../../utils/constant.dart';
 
 class PlaceItem extends StatelessWidget {
   final int index;

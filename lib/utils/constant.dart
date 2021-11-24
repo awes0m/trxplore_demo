@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'model/place.dart';
+import '../model/place.dart';
 
 Color mBackgroundColor = const Color(0xFFFEFEFE);
 Color mPrimaryColor = const Color(0xFFf36f7c);
