@@ -5,11 +5,25 @@ import '../../../utils/constant.dart';
 
 AppBar buildappBar() {
   return AppBar(
-    title: const Text('Trxplore'),
-    titleTextStyle: const TextStyle(
-      color: Colors.white,
-      fontWeight: FontWeight.bold,
-      fontSize: 70,
+    title: Row(
+      children: const [
+        Text(
+          'Trxplore',
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
+        ),
+        Text(
+          '  :>',
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+            color: Colors.black,
+            fontSize: 20,
+          ),
+        ),
+      ],
     ),
     backgroundColor: mBackgroundColor,
     elevation: 0,

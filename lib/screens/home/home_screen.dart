@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Text(
-              "Travel, Live, Explore the world \nwith us !",
+              "Travel, Live, Explore the world   with Us !",
               style: TextStyle(
                 fontSize: 30,
               ),

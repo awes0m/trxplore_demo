@@ -12,14 +12,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Trxplore',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: mBackgroundColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         primarySwatch: Colors.lightGreen,
       ),
-      home: const HomeScreen(),
+      // ignore: prefer_const_constructors
+      home: HomeScreen(),
       routes: {DetailScreen.routeName: (ctx) => const DetailScreen()},
     );
   }

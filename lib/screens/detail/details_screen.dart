@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:trxplore_demo/utils/constant.dart';
+import 'package:trxplore_demo/screens/detail/widget/about.dart';
+
+import 'widget/attribute_items.dart';
+import 'widget/book_now_button.dart';
+import 'widget/place_and_name.dart';
+import 'widget/my_header.dart';
 
 class DetailScreen extends StatelessWidget {
   static const routeName = '/detail-screen';
@@ -8,37 +13,17 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-            width: double.infinity,
-            height: 400,
-            child: Stack(
-              children: [
-                Image.asset(
-                  'assets/images/header.png',
-                  height: 400,
-                  fit: BoxFit.cover,
-                ),
-                Positioned(
-                    left: 30,
-                    top: 60,
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(color: mBackgroundColor),
-                        child: Icon(
-                          Icons.arrow_back_ios_new,
-                          color: mPrimaryColor,
-                        ),
-                      ),
-                    ))
-              ],
-            ),
-          )
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: const <Widget>[
+            MyHeader(),
+            PlaceAndName(),
+            SizedBox(height: 36),
+            About(),
+            AttributeItems(),
+            BookNowButton()
+          ],
+        ),
       ),
     );
   }
