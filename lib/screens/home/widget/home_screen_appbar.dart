@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/constant.dart';
 
-AppBar buildappBar() {
+AppBar buildappBar(scaffoldKey) {
   return AppBar(
     title: Row(
       children: const [
@@ -26,28 +26,33 @@ AppBar buildappBar() {
       ],
     ),
     backgroundColor: mBackgroundColor,
-    elevation: 0,
-    leading: IconButton(
-      icon: SvgPicture.asset(
-        'assets/icons/menu.svg',
-        width: 24,
-      ),
-      onPressed: () {},
-    ),
+    elevation: 5,
+    leading: Builder(builder: (context) {
+      return IconButton(
+        icon: SvgPicture.asset(
+          'assets/icons/menu.svg',
+          width: 24,
+        ),
+        onPressed: () {
+          scaffoldKey.currentState.openDrawer();
+        },
+      );
+    }),
     actions: [
       UnconstrainedBox(
-          child: Container(
-        padding: const EdgeInsets.all(2),
-        margin: const EdgeInsets.only(right: 12),
-        decoration: BoxDecoration(
-          color: mPrimaryColor,
-          borderRadius: BorderRadius.circular(8),
+        child: Container(
+          padding: const EdgeInsets.all(2),
+          margin: const EdgeInsets.only(right: 12),
+          decoration: BoxDecoration(
+            color: mPrimaryColor,
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Image.asset(
+            'assets/images/user.png',
+            width: 36,
+          ),
         ),
-        child: Image.asset(
-          'assets/images/user.png',
-          width: 36,
-        ),
-      )),
+      ),
     ],
   );
 }

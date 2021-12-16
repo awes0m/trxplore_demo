@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_svg/svg.dart';
-import 'package:trxplore_demo/utils/constant.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/places.dart';
+import '../../../utils/constant.dart';
 
 class MyHeader extends StatelessWidget {
-  const MyHeader({
-    Key? key,
-  }) : super(key: key);
+  final int index;
+
+  const MyHeader({Key? key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final placesData = Provider.of<Places>(context);
+    final placeList = placesData.items;
     return SizedBox(
       width: double.infinity,
       height: 400,
@@ -17,7 +21,7 @@ class MyHeader extends StatelessWidget {
         child: Stack(
           children: [
             Image.asset(
-              'assets/images/header.png',
+              placeList[index].imageUrl,
               height: 400,
               fit: BoxFit.cover,
             ),

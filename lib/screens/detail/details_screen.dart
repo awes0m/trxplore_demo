@@ -8,20 +8,31 @@ import 'widget/my_header.dart';
 
 class DetailScreen extends StatelessWidget {
   static const routeName = '/detail-screen';
-  const DetailScreen({Key? key}) : super(key: key);
+
+  const DetailScreen({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    int index = ModalRoute.of(context)!.settings.arguments
+        as int; // fetch the selected item index from place_staggered_gridview
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: const <Widget>[
-            MyHeader(),
-            PlaceAndName(),
-            SizedBox(height: 36),
-            About(),
-            AttributeItems(),
-            BookNowButton()
+          children: <Widget>[
+            MyHeader(
+              index: index,
+            ),
+            PlaceAndName(
+              index: index,
+            ),
+            const SizedBox(height: 36),
+            About(
+              index: index,
+            ),
+            const AttributeItems(),
+            const BookNowButton()
           ],
         ),
       ),

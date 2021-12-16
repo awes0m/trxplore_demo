@@ -1,25 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:trxplore_demo/screens/detail/details_screen.dart';
+import 'package:provider/provider.dart';
 
-import '../../../utils/constant.dart';
+import '../../../providers/places.dart';
+import '../../detail/details_screen.dart';
 
-class PlaceItem extends StatelessWidget {
-  final int index;
+class PlaceGridItem extends StatelessWidget {
+  final int
+      index; // fetch the selected item index from place_staggered_gridview
 
-  const PlaceItem(
+  const PlaceGridItem(
     this.index, {
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final placesData = Provider.of<Places>(context);
+    final placeList = placesData.items;
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).pushNamed(DetailScreen.routeName);
+        Navigator.of(context)
+            .pushNamed(DetailScreen.routeName, arguments: index);
       },
       child: Container(
         alignment: Alignment.bottomLeft,
-        height: placeList[index].height,
+        height: placeList[index].imageheight,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(

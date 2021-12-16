@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widget/app_drawer.dart';
 import 'widget/category_listview.dart';
 import 'widget/home_screen_appbar.dart';
 import 'widget/place_staggered_gridview.dart';
@@ -10,8 +11,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var scaffoldKey = GlobalKey<
+        ScaffoldState>(); //identify the scaffold and link it to th drawer widget
     return Scaffold(
-      appBar: buildappBar(),
+      appBar: buildappBar(scaffoldKey),
+      key: scaffoldKey,
+      drawer: const MainDrawer(),
       body: Column(
         children: const [
           SearchInput(),

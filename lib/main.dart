@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:trxplore_demo/providers/places.dart';
+
 import './screens/home/home_screen.dart';
 import 'utils/constant.dart';
 import 'screens/detail/details_screen.dart';
@@ -11,17 +14,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Trxplore',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: mBackgroundColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        primarySwatch: Colors.lightGreen,
+    return ChangeNotifierProvider(
+      create: (ctx) => Places(),
+      child: MaterialApp(
+        title: 'Trxplore',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: mBackgroundColor,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          primarySwatch: Colors.lightGreen,
+        ),
+        // ignore: prefer_const_constructors
+        home: HomeScreen(),
+        routes: {DetailScreen.routeName: (ctx) => const DetailScreen()},
       ),
-      // ignore: prefer_const_constructors
-      home: HomeScreen(),
-      routes: {DetailScreen.routeName: (ctx) => const DetailScreen()},
     );
   }
 }

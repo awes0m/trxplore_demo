@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../providers/places.dart';
 import '/utils/constant.dart';
 
 class About extends StatelessWidget {
+  final int
+      index; // fetch the selected item index from place_staggered_gridview
+
   const About({
     Key? key,
+    required this.index,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final placesData = Provider.of<Places>(context);
+    final placeList = placesData.items;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -19,22 +28,25 @@ class About extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Text(
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        Text(
+          placeList[index].description,
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             color: Colors.black54,
             height: 1.5,
           ),
         ),
-        Text(
-          'Read more...',
-          style: TextStyle(
-            color: mPrimaryColor,
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline,
+        TextButton(
+          onPressed: () {},
+          child: Text(
+            'Read more...',
+            style: TextStyle(
+              color: mPrimaryColor,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.underline,
+            ),
           ),
         ),
       ],
