@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../utils/constant.dart';
 
-AppBar buildappBar(scaffoldKey) {
+AppBar buildappBar(scaffoldKey, context) {
   return AppBar(
     title: Row(
       children: const [
@@ -47,10 +47,11 @@ AppBar buildappBar(scaffoldKey) {
             color: mPrimaryColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Image.asset(
-            'assets/images/user.png',
-            width: 36,
-          ),
+          child: IconButton(
+              icon: const Icon(Icons.search),
+              onPressed: () {
+                // showSearch(context: context, delegate: Datasearch());
+              }),
         ),
       ),
     ],

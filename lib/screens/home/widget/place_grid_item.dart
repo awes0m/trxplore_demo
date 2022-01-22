@@ -27,7 +27,7 @@ class PlaceGridItem extends StatelessWidget {
         height: placeList[index].imageheight,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(
+            image: NetworkImage(
               placeList[index].imageUrl,
             ),
             fit: BoxFit.cover,

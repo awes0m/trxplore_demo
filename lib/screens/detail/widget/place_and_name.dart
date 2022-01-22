@@ -23,7 +23,8 @@ class PlaceAndName extends StatelessWidget {
       ),
       child: Row(children: <Widget>[
         Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               placeList[index].title, //title from places provider
@@ -37,15 +38,23 @@ class PlaceAndName extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 12,
               ),
+            ),
+            const Padding(padding: EdgeInsets.all(10)),
+            Text(
+              ' RS ${placeList[index].price}', //Price from places provider
+              style: const TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),
             )
           ],
         ),
-        Row(
-          children: [
-            SvgPicture.asset('assets/icons/star.svg'),
-            const Text("4.8/5"),
-          ],
-        )
+        // Row(
+        //   children: [
+        //     SvgPicture.asset('assets/icons/star.svg'),
+        //     const Text("4.8/5"),
+        //   ],
+        // )
       ]),
     );
   }

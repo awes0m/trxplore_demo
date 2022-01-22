@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
+import '../../models/widgets/demo_pop_up.dart';
 import 'widget/app_drawer.dart';
-import 'widget/category_listview.dart';
 import 'widget/home_screen_appbar.dart';
 import 'widget/place_staggered_gridview.dart';
-import 'widget/search_input.dart';
+//import 'widget/search_input.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,12 +14,14 @@ class HomeScreen extends StatelessWidget {
     var scaffoldKey = GlobalKey<
         ScaffoldState>(); //identify the scaffold and link it to th drawer widget
     return Scaffold(
-      appBar: buildappBar(scaffoldKey),
+      appBar: buildappBar(scaffoldKey, context),
       key: scaffoldKey,
       drawer: const MainDrawer(),
       body: Column(
         children: const [
-          SearchInput(),
+          DemoPopUp(),
+          SizedBox(height: 24),
+          //SearchInput(),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 30),
             child: Text(
@@ -30,7 +32,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           SizedBox(height: 24),
-          CategoryListView(),
+          // CategoryListView(),
           Expanded(
             child: PlaceStaggeredGridview(),
           ),

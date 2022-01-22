@@ -20,7 +20,7 @@ class MyHeader extends StatelessWidget {
       child: Center(
         child: Stack(
           children: [
-            Image.asset(
+            Image.network(
               placeList[index].imageUrl,
               height: 400,
               fit: BoxFit.cover,

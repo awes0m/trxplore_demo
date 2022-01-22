@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
+import 'package:trxplore_demo/providers/places.dart';
 import 'package:trxplore_demo/utils/constant.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookNowButton extends StatelessWidget {
+  final int index;
   const BookNowButton({
+    required this.index,
     Key? key,
   }) : super(key: key);
 
@@ -21,7 +25,14 @@ class BookNowButton extends StatelessWidget {
               ),
             ),
           ),
-          onPressed: _launchURL,
+          onPressed: () async {
+            var url = Provider.of<Places>(context).items[index].buynowlink;
+            if (await canLaunch(url)) {
+              await launch(url);
+            } else {
+              throw 'Could not launch $url';
+            }
+          },
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
             child: const Text(
@@ -33,15 +44,5 @@ class BookNowButton extends StatelessWidget {
             ),
           )),
     );
-  }
-}
-
-_launchURL() async {
-  const url =
-      'https://docs.google.com/forms/d/1fk74-TA3m2-0CdWfCNvlZkTRzOrZvPPNjwTXk3k6UHs/edit?ts=61abd8ae';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
   }
 }
