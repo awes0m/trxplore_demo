@@ -4,6 +4,7 @@ import 'package:trxplore_demo/providers/places.dart';
 
 class TrekAttributes extends StatelessWidget {
   final int index;
+
   const TrekAttributes({required this.index, Key? key}) : super(key: key);
 
   @override
@@ -14,11 +15,11 @@ class TrekAttributes extends StatelessWidget {
         children: [
           ListTile(
             title: const Text("Altitude"),
-            subtitle: Text('${placesData[index].altitudeInMeter} m'),
+            subtitle: Text('${placesData[index].altitudeInMeter.toString()} m'),
           ),
           ListTile(
             title: const Text("Trek Duration"),
-            subtitle: Text(placesData[index].duration),
+            subtitle: Text(placesData[index].duration.toString()),
           ),
           ListTile(
             title: const Text("Starting point"),

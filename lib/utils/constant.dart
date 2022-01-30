@@ -9,3 +9,5 @@ const categoryList = [
   "Most Viewed",
   "All places",
 ];
+const String databaseUrl =
+    'trxplore-demo-database-default-rtdb.asia-southeast1.firebasedatabase.app';

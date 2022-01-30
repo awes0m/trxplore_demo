@@ -5,7 +5,7 @@ class Place with ChangeNotifier {
   final String title;
   final String subtitle;
   final String imageUrl;
-  final double? imageheight;
+  final double imageheight;
   final String description;
   final double price;
   final String trekDifficulty;

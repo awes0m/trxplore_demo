@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trxplore_demo/screens/about_us_screen.dart';
 import '../../../utils/constant.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -23,20 +24,47 @@ class MainDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            title: const Text('Tours offered'),
+            title: const Text('About us'),
             onTap: () {
-              Navigator.pop(context);
+              showAboutDialog(
+                  context: context,
+                  // applicationIcon: const Image(
+                  //   image: AssetImage('assets/logo/logo.png'),
+                  // ),
+                  applicationName: 'Trxplore.com',
+                  applicationVersion: '1.0.0-Demo',
+                  applicationLegalese:
+                      'Developed by Apisod.com \n Copyright 2020',
+                  children: <Widget>[
+                    const Padding(padding: EdgeInsets.all(10)),
+                    const Text(
+                      'About Us',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      child: const Text(
+                          'Our focus is on removing agents and middleman for the experience of travelling for clients so that there will be no communication gap between clients and trekking and adventure guides.We intend to  provide a new platform to every single trekking/adventure guides where they can increse their business by sharing their experiences through our company.'),
+                    )
+                  ]);
             },
           ),
           const Divider(),
           ListTile(
-            title: const Text('About Us'),
+            title: const Text('Our Mission'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.of(context).pushNamed(AboutUsScreen.routeName);
             },
           ),
           const Divider(),
-          const Positioned(child: Text('Version 1.0.0')),
+          const Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text(' Ver : 1.0.0-Demo'),
+          ),
+          const Divider(),
         ],
       ),
     );

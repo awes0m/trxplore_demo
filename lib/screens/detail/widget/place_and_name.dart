@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/places.dart';
 import '../../../utils/constant.dart';
@@ -41,7 +40,7 @@ class PlaceAndName extends StatelessWidget {
             ),
             const Padding(padding: EdgeInsets.all(10)),
             Text(
-              ' RS ${placeList[index].price}', //Price from places provider
+              ' Rs ${placeList[index].price}', //Price from places provider
               style: const TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,

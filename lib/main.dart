@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trxplore_demo/providers/places.dart';
+import 'package:trxplore_demo/screens/about_us_screen.dart';
 
 import './screens/home/home_screen.dart';
 import 'utils/constant.dart';
@@ -26,7 +27,10 @@ class MyApp extends StatelessWidget {
         ),
         // ignore: prefer_const_constructors
         home: HomeScreen(),
-        routes: {DetailScreen.routeName: (ctx) => const DetailScreen()},
+        routes: {
+          DetailScreen.routeName: (ctx) => const DetailScreen(),
+          AboutUsScreen.routeName: (ctx) => const AboutUsScreen(),
+        },
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:trxplore_demo/screens/home/widget/search_logic.dart';
 
 import '../../../utils/constant.dart';
 
@@ -50,7 +51,7 @@ AppBar buildappBar(scaffoldKey, context) {
           child: IconButton(
               icon: const Icon(Icons.search),
               onPressed: () {
-                // showSearch(context: context, delegate: Datasearch());
+                showSearch(context: context, delegate: SearchPlaces());
               }),
         ),
       ),
