@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +28,7 @@ class PlaceGridItem extends StatelessWidget {
         height: placeList[index].imageheight,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: NetworkImage(
+            image: CachedNetworkImageProvider(
               placeList[index].imageUrl,
             ),
             fit: BoxFit.cover,

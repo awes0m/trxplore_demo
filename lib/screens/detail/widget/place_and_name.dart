@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import '../../../providers/places.dart';
 import '../../../utils/constant.dart';
+import '../../../utils/screen_helper.dart';
 
 class PlaceAndName extends StatelessWidget {
   final int index;
@@ -12,49 +14,67 @@ class PlaceAndName extends StatelessWidget {
     final placesData = Provider.of<Places>(context);
     final placeList = placesData.items;
     return Container(
-      padding: const EdgeInsets.all(36),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
       decoration: BoxDecoration(
         color: mSecondaryColor,
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(36),
-          bottomRight: Radius.circular(36),
-        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: Offset(0, 10),
+            blurRadius: 20,
+          ),
+        ],
+        borderRadius: ScreenHelper.isMobile(context)
+            ? null
+            : const BorderRadius.only(
+                bottomLeft: Radius.circular(36),
+                bottomRight: Radius.circular(36),
+              ),
       ),
-      child: Row(children: <Widget>[
-        Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              placeList[index].title, //title from places provider
-              style: const TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+      child: Column(
+        mainAxisAlignment: ScreenHelper.isMobile(context)
+            ? MainAxisAlignment.start
+            : MainAxisAlignment.center,
+        crossAxisAlignment: ScreenHelper.isMobile(context)
+            ? CrossAxisAlignment.stretch
+            : CrossAxisAlignment.start,
+        children: [
+          Text(
+            placeList[index].title, //title from places provider
+            style: const TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
             ),
-            Text(
-              placeList[index].subtitle, //subtitle from places provider
-              style: const TextStyle(
-                fontSize: 12,
-              ),
+          ),
+          Text(
+            placeList[index].subtitle, //subtitle from places provider
+            style: const TextStyle(
+              fontSize: 12,
             ),
-            const Padding(padding: EdgeInsets.all(10)),
-            Text(
-              ' Rs ${placeList[index].price}', //Price from places provider
-              style: const TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        ),
-        // Row(
-        //   children: [
-        //     SvgPicture.asset('assets/icons/star.svg'),
-        //     const Text("4.8/5"),
-        //   ],
-        // )
-      ]),
+          ),
+          const Padding(padding: EdgeInsets.all(10)),
+          Container(
+            width: ScreenHelper.isMobile(context)
+                ? double.infinity
+                : kDesktopMaxWidth / 2 - 20,
+            child: Row(
+              children: [
+                const Icon(
+                  FontAwesomeIcons.rupeeSign,
+                  size: 18,
+                ),
+                Text(
+                  ' ${placeList[index].price}', //Price from places provider
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }
