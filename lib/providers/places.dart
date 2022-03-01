@@ -52,6 +52,7 @@ class Places with ChangeNotifier {
           duration: prodData['Duration'],
           endPoint: prodData['endPoint'],
           startPoint: prodData['startPoint'],
+          bestseason: prodData['bestseason'],
         ));
       });
       _items = loadedPlaces;

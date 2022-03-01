@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         appBar: buildappBar(scaffoldKey, context),
         key: scaffoldKey,
         drawer: const MainDrawer(),
-        body: Container(
+        body: SizedBox(
           child: ScreenHelper(
             desktop: _buildUi(
               context,
@@ -31,7 +31,9 @@ class HomeScreen extends StatelessWidget {
 }
 
 Widget _buildUi(BuildContext context) {
-  return Expanded(
+  return SizedBox(
+    height: MediaQuery.of(context).size.height,
+    width: MediaQuery.of(context).size.width,
     child: Column(
       children: const [
         DemoPopUp(),

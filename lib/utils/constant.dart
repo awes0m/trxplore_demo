@@ -12,7 +12,7 @@ const categoryList = [
 const String databaseUrl =
     'trxplore-demo-database-default-rtdb.asia-southeast1.firebasedatabase.app';
 
-const double kDesktopMaxWidth = 1000;
+const double kDesktopMaxWidth = 1300;
 const double kTabletMaxWidth = 760.0;
 double getMobileMaxWidth(BuildContext context) {
   return MediaQuery.of(context).size.width * .8;

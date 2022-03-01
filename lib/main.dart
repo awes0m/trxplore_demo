@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (ctx) => Places(),
+    
       child: MaterialApp(
         title: 'Trxplore',
         debugShowCheckedModeBanner: false,

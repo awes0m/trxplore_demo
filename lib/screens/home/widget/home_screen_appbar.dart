@@ -7,8 +7,14 @@ import '../../../utils/constant.dart';
 AppBar buildappBar(scaffoldKey, context) {
   return AppBar(
     title: Row(
-      children: const [
-        Text(
+      children: [
+        SizedBox(
+          height: 55,
+          child: Image.asset(
+            'assets/logo/Logo_Trxplore_final.png',
+          ),
+        ),
+        const Text(
           'Trxplore',
           style: TextStyle(
             color: Colors.black,
@@ -16,7 +22,7 @@ AppBar buildappBar(scaffoldKey, context) {
             fontSize: 30,
           ),
         ),
-        Text(
+        const Text(
           '  :>',
           style: TextStyle(
             fontStyle: FontStyle.italic,

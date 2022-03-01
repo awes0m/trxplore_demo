@@ -20,7 +20,7 @@ class PlaceAndName extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),
-            offset: Offset(0, 10),
+            offset: const Offset(0, 10),
             blurRadius: 20,
           ),
         ],
@@ -53,7 +53,7 @@ class PlaceAndName extends StatelessWidget {
             ),
           ),
           const Padding(padding: EdgeInsets.all(10)),
-          Container(
+          SizedBox(
             width: ScreenHelper.isMobile(context)
                 ? double.infinity
                 : kDesktopMaxWidth / 2 - 20,

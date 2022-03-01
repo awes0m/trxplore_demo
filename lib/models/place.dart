@@ -21,7 +21,7 @@ class Place with ChangeNotifier {
     required this.title,
     required this.subtitle,
     required this.imageUrl,
-    this.imageheight = 250,
+    required this.imageheight,
     required this.description,
     required this.price,
     required this.trekDifficulty,
@@ -29,7 +29,7 @@ class Place with ChangeNotifier {
     required this.altitudeInMeter,
     required this.startPoint,
     required this.endPoint,
-    this.bestseason = "All Year",
+    required this.bestseason ,
     required this.buynowlink,
   });
 }

@@ -15,7 +15,7 @@ class TrekAttributes extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
-      margin: EdgeInsets.all(30),
+      margin: const EdgeInsets.all(30),
       shadowColor: Theme.of(context).primaryColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -60,6 +60,14 @@ class TrekAttributes extends StatelessWidget {
             ),
             title: const Text("Trek Difficulty"),
             subtitle: Text(placesData[index].trekDifficulty),
+          ),
+          ListTile(
+            leading: Icon(
+              FontAwesomeIcons.cloud,
+              color: Theme.of(context).primaryColor,
+            ),
+            title: const Text("Best Season"),
+            subtitle: Text(placesData[index].bestseason),
           ),
         ],
       ),

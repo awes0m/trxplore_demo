@@ -17,7 +17,7 @@ class About extends StatelessWidget {
     final placesData = Provider.of<Places>(context);
     final placeList = placesData.items;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
